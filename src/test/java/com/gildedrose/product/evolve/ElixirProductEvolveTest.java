@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static com.gildedrose.ItemBuilder.builder;
+import static com.gildedrose.ProductType.ELIXIR;
 import static com.gildedrose.testutils.ProductNameTestUtils.ELIXIR_NAME;
 
 public class ElixirProductEvolveTest {
@@ -19,6 +20,17 @@ public class ElixirProductEvolveTest {
             .build());
 
         Assertions.assertEquals(2, elixirProductEvolve.getNextSellInValue(itemWrapper));
+    }
+
+    @Test
+    public void getNextQualityValue_decrements_quality_by_1_when_sellIn_equals_0() {
+        ItemWrapper itemWrapper = new ItemWrapper(builder()
+            .name(ELIXIR.getName())
+            .sellIn(0)
+            .quality(10)
+            .build());
+
+        Assertions.assertEquals(9, elixirProductEvolve.getNextQualityValue(itemWrapper));
     }
 
     @Test

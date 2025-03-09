@@ -4,6 +4,7 @@ package com.gildedrose;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static com.gildedrose.ProductType.CONJURED;
 import static com.gildedrose.testutils.ProductNameTestUtils.*;
 
 public class ProductTypeTest {
@@ -31,6 +32,11 @@ public class ProductTypeTest {
     @Test
     public void fromName_gives_ProductType_SULFURAS_when_Aged_Brie_name() {
         Assertions.assertEquals(ProductType.SULFURAS, ProductType.fromName(SULFURAS_NAME));
+    }
+
+    @Test
+    public void fromName_gives_ProductType_CONJURED_when_Aged_Brie_name() {
+        Assertions.assertEquals(CONJURED, ProductType.fromName("Conjured Mana Cake"));
     }
 
     @Test
