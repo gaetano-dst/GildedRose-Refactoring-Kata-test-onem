@@ -1,7 +1,6 @@
 package com.gildedrose.product.evolve;
 
 import com.gildedrose.ItemBuilder;
-import com.gildedrose.ItemWrapper;
 import com.gildedrose.exceptions.GildedRoseProductException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

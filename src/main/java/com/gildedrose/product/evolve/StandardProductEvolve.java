@@ -1,7 +1,5 @@
 package com.gildedrose.product.evolve;
 
-import com.gildedrose.ItemWrapper;
-
 class StandardProductEvolve implements ProductEvolve {
 
     static final int UNIT_BY_1 = 1;
@@ -12,11 +10,11 @@ class StandardProductEvolve implements ProductEvolve {
 
     @Override
     public int getNextSellInValue(ItemWrapper itemWrapper) {
-        return itemWrapper.getItem().sellIn - UNIT_BY_1;
+        return itemWrapper.getSellIn() - UNIT_BY_1;
     }
 
     @Override
     public int getNextQualityValue(ItemWrapper itemWrapper) {
-        return itemWrapper.getItem().quality - UNIT_BY_1;
+        return itemWrapper.getQuality() - UNIT_BY_1;
     }
 }

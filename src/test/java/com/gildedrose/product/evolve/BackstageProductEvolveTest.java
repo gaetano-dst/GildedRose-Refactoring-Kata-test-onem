@@ -1,6 +1,5 @@
 package com.gildedrose.product.evolve;
 
-import com.gildedrose.ItemWrapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

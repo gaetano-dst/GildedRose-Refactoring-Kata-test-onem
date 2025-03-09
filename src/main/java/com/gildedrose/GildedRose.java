@@ -1,7 +1,7 @@
 package com.gildedrose;
 
+import com.gildedrose.product.evolve.ItemWrapper;
 import com.gildedrose.product.evolve.ProductTimeLife;
-import com.gildedrose.utils.ItemUtils;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -10,26 +10,27 @@ import static com.gildedrose.product.evolve.ProductEvolveProvider.getEvolve;
 
 class GildedRose {
 
-    Item[] items;
+    private ItemWrapper[] itemWrappers;
 
     GildedRose(Item[] items) {
-        this.items = copyItems(items);
+        this.itemWrappers = copyItems(Optional.ofNullable(items).orElse(new Item[0]));
     }
 
     void updateQuality() {
-        this.items = Arrays.stream(this.items)
-            .map(ItemWrapper::new)
+        this.itemWrappers = Arrays.stream(this.itemWrappers)
             .map(itemWrapper -> new ProductTimeLife(getEvolve(itemWrapper.getProductType())).apply(itemWrapper))
-            .map(ItemWrapper::getItem)
-            .toArray(Item[]::new);
+            .toArray(ItemWrapper[]::new);
     }
 
-    private Item[] copyItems(Item[] items) {
-        return Optional.ofNullable(items)
-            .stream()
-            .flatMap(Arrays::stream)
-            .map(ItemUtils::getCopy)
-            .toArray(Item[]::new);
+    private ItemWrapper[] copyItems(Item[] items) {
+        return Arrays.stream(items)
+            .map(ItemWrapper::new)
+            .toArray(ItemWrapper[]::new);
     }
 
+    public Item[] getItems() {
+        return Arrays.stream(this.itemWrappers)
+            .map(wrapper -> new Item(wrapper.getName(), wrapper.getSellIn(), wrapper.getQuality()))
+            .toArray(Item[]::new);
+    }
 }

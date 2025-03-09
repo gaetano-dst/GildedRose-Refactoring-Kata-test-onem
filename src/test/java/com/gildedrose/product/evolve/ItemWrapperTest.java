@@ -1,5 +1,7 @@
-package com.gildedrose;
+package com.gildedrose.product.evolve;
 
+import com.gildedrose.ItemBuilder;
+import com.gildedrose.ProductType;
 import com.gildedrose.exceptions.GildedRoseProductException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -22,9 +24,9 @@ class ItemWrapperTest {
             .quality(10)
             .build());
 
-        Assertions.assertEquals("Aged Brie", itemWrapper.getItem().name);
-        Assertions.assertEquals(0, itemWrapper.getItem().sellIn);
-        Assertions.assertEquals(10, itemWrapper.getItem().quality);
+        Assertions.assertEquals("Aged Brie", itemWrapper.getName());
+        Assertions.assertEquals(0, itemWrapper.getSellIn());
+        Assertions.assertEquals(10, itemWrapper.getQuality());
     }
 
     @Test

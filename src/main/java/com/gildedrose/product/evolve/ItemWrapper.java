@@ -1,5 +1,7 @@
-package com.gildedrose;
+package com.gildedrose.product.evolve;
 
+import com.gildedrose.Item;
+import com.gildedrose.ProductType;
 import com.gildedrose.exceptions.GildedRoseProductException;
 import com.gildedrose.utils.ItemUtils;
 
@@ -27,11 +29,28 @@ public class ItemWrapper {
         }
     }
 
-    public Item getItem() {
-        return item;
+
+    public int getQuality() {
+        return this.item.quality;
+    }
+
+    public int getSellIn() {
+        return this.item.sellIn;
+    }
+
+    public String getName() {
+        return this.item.name;
     }
 
     public ProductType getProductType() {
         return productType;
+    }
+
+    void updateSellIn(int sellIn) {
+        this.item.sellIn = sellIn;
+    }
+
+    void updateQuality(int quality) {
+        this.item.quality = quality;
     }
 }

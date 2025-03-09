@@ -20,7 +20,7 @@ class GildedRoseTest {
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals(FOO_PRODUCT_NAME, app.items[0].name);
+        assertEquals(FOO_PRODUCT_NAME, app.getItems()[0].name);
     }
 
 }

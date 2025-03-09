@@ -26,12 +26,12 @@ public class SimulationAssertionsTestUtils {
             // Get expected values for the current day
             ExpectedState expectedState = expectedStates.get(day);
 
-            for (Item item : app.items) {
+            for (Item item : app.getItems()) {
                 System.out.println(item);
 
                 // Assertions
-                Assertions.assertEquals(expectedState.expectedSellIn(), app.items[0].sellIn, "SellIn not correct on day " + day);
-                Assertions.assertEquals(expectedState.expectedQuality(), app.items[0].quality, "Quality not correct on day " + day);
+                Assertions.assertEquals(expectedState.expectedSellIn(), app.getItems()[0].sellIn, "SellIn not correct on day " + day);
+                Assertions.assertEquals(expectedState.expectedQuality(), app.getItems()[0].quality, "Quality not correct on day " + day);
             }
 
             // Update for next day
