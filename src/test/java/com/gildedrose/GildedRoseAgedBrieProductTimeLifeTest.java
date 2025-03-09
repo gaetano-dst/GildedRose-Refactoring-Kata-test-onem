@@ -8,7 +8,7 @@ import java.util.List;
 
 import static com.gildedrose.ItemBuilder.builder;
 
-class GildedRoseAgedBrieProductTimelifeTest {
+class GildedRoseAgedBrieProductTimeLifeTest {
 
 
     @DisplayName("'Aged Brie' - quality increments by 1 for each day sellIn decrements by 1 - When sellIn > 0")

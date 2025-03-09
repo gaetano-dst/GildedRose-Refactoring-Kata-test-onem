@@ -8,13 +8,12 @@ import java.util.List;
 
 import static com.gildedrose.ItemBuilder.builder;
 
-public class GildedRoseSulfurasProductTimelifeTest {
+public class GildedRoseSulfurasProductTimeLifeTest {
 
 
-    // TODO: I think, this is a bug. Days should decrement in time life !
-    @DisplayName("'Sulfuras' - quality gives always same sellIn and Quality always 80 - When sellIn < 1 (start from 1 and then expires)")
+    @DisplayName("'Sulfuras' - quality gives always same initialized sellIn and Quality always 80 - Whatever sellIn value is (start from 0)")
     @Test
-    public void updateQuality_on_items_Sulfuras_products_give_always_same_sellIn_and_quality_to_80() {
+    public void updateQuality_on_items_Sulfuras_products_give_always_same_sellIn_and_quality_to_80_after_update() {
         GildedRose app = new GildedRose(new Item[] {
             builder()
                 .name("Sulfuras, Hand of Ragnaros")
@@ -33,10 +32,9 @@ public class GildedRoseSulfurasProductTimelifeTest {
         SimulationAssertionsTestUtils.simulateAndAssert(expectedStates, app);
     }
 
-    // TODO: I think, this is a bug. Days should decrement in time life !
-    @DisplayName("'Sulfuras' - quality gives always same sellIn and Quality always 80 - When sellIn < 0 (expired)")
+    @DisplayName("'Sulfuras' - quality gives always same initialized sellIn and Quality always 80 - Whatever sellIn value is (start from -1)")
     @Test
-    public void updateQuality_on_items_Sulfuras_products_give_always_same_sellIn_and_quality_when_sellIn_expired() {
+    public void updateQuality_on_items_Sulfuras_products_give_always_same_sellIn_and_quality_after_update_when_sellIn_expired() {
         GildedRose app = new GildedRose(new Item[] {
             builder()
                 .name("Sulfuras, Hand of Ragnaros")
@@ -55,7 +53,7 @@ public class GildedRoseSulfurasProductTimelifeTest {
         SimulationAssertionsTestUtils.simulateAndAssert(expectedStates, app);
     }
 
-    // TODO: I think it's a bug. Sulfuras should always have its quality = 80 as defined in the requirements !
+    @DisplayName("'Sulfuras' - quality gives always same initialized sellIn and Quality always 80 - Whatever sellIn value is (start from 3)")
     @Test
     public void updateQuality_on_items_Sulfuras_products_should_always_be_80() {
         GildedRose app = new GildedRose(new Item[] {
@@ -68,9 +66,9 @@ public class GildedRoseSulfurasProductTimelifeTest {
 
         // Expected values
         List<ExpectedState> expectedStates = List.of(
-            new ExpectedState(3, 10), // Initial day
-            new ExpectedState(3, 10), // After 1 day
-            new ExpectedState(3, 10)  // After 2 days
+            new ExpectedState(3, 10), // Initial day (before update)
+            new ExpectedState(3, 80), // After 1 day
+            new ExpectedState(3, 80)  // After 2 days
         );
 
         SimulationAssertionsTestUtils.simulateAndAssert(expectedStates, app);

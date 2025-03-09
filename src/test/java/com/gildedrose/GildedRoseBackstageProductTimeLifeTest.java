@@ -8,7 +8,7 @@ import java.util.List;
 
 import static com.gildedrose.ItemBuilder.builder;
 
-class GildedRoseBackstageProductTimelifeTest {
+class GildedRoseBackstageProductTimeLifeTest {
 
 
     @DisplayName("'Backstage' - quality increments by 1 for each day sellIn decrements by 1 - When sellIn > 10 (start at more than 10 days expiration)")
@@ -47,10 +47,10 @@ class GildedRoseBackstageProductTimelifeTest {
         // Expected values
         List<ExpectedState> expectedStates = List.of(
             new ExpectedState(11, 20), // Initial day
-            new ExpectedState(10, 21), // After 1 day (quality +1)
-            new ExpectedState(9, 23), // After 2 days (quality +2)
-            new ExpectedState(8, 25),  // After 3 days
-            new ExpectedState(7, 27)  // After 4 days
+            new ExpectedState(10, 22), // After 1 day (quality +2)
+            new ExpectedState(9, 24), // After 2 days
+            new ExpectedState(8, 26),  // After 3 days
+            new ExpectedState(7, 28)  // After 4 days
         );
 
         SimulationAssertionsTestUtils.simulateAndAssert(expectedStates, app);
@@ -70,12 +70,12 @@ class GildedRoseBackstageProductTimelifeTest {
         // Expected values
         List<ExpectedState> expectedStates = List.of(
             new ExpectedState(6, 20), // Initial day
-            new ExpectedState(5, 22), // After 1 day (quality +2)
-            new ExpectedState(4, 25), // After 2 days (quality +3)
-            new ExpectedState(3, 28),  // After 3 days
-            new ExpectedState(2, 31),  // After 4 days
-            new ExpectedState(1, 34),  // After 5 days
-            new ExpectedState(0, 37)  // After 6 days
+            new ExpectedState(5, 23), // After 1 day (quality +3)
+            new ExpectedState(4, 26), // After 2 days
+            new ExpectedState(3, 29),  // After 3 days
+            new ExpectedState(2, 32),  // After 4 days
+            new ExpectedState(1, 35),  // After 5 days
+            new ExpectedState(0, 38)  // After 6 days
         );
 
         SimulationAssertionsTestUtils.simulateAndAssert(expectedStates, app);

@@ -8,7 +8,7 @@ import java.util.List;
 
 import static com.gildedrose.ItemBuilder.builder;
 
-class GildedRoseNormalProductTimelifeTest {
+class GildedRoseNormalProductTimeLifeTest {
 
 
     @DisplayName("'Dexterity Elixir' (normal or standard product) - quality decrements by 1 for each day sellIn decrements by 1 - When sellIn > 0")
