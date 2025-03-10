@@ -52,5 +52,5 @@ public class ItemWrapper {
             throw new GildedRoseProductException("Null Item is not allowed to create ItemWrapper");
         }
     }
-    
+
 }

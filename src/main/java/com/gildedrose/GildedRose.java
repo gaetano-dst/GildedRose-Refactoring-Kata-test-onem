@@ -30,7 +30,12 @@ class GildedRose {
 
     public Item[] getItems() {
         return Arrays.stream(this.itemWrappers)
-            .map(wrapper -> new Item(wrapper.getName(), wrapper.getSellIn(), wrapper.getQuality()))
+            .map(wrapper -> ItemBuilder.builder()
+                .name(wrapper.getName())
+                .sellIn(wrapper.getSellIn())
+                .quality(wrapper.getQuality())
+                .build()
+            )
             .toArray(Item[]::new);
     }
 }
