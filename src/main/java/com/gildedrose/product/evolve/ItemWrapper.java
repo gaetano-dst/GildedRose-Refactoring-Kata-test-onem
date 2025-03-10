@@ -23,13 +23,6 @@ public class ItemWrapper {
         this.item = ItemUtils.getCopy(item);
     }
 
-    private static void validateItem(Item item) {
-        if (item == null) {
-            throw new GildedRoseProductException("Null Item is not allowed to create ItemWrapper");
-        }
-    }
-
-
     public int getQuality() {
         return this.item.quality;
     }
@@ -53,4 +46,11 @@ public class ItemWrapper {
     void updateQuality(int quality) {
         this.item.quality = quality;
     }
+
+    private void validateItem(Item item) {
+        if (item == null) {
+            throw new GildedRoseProductException("Null Item is not allowed to create ItemWrapper");
+        }
+    }
+    
 }
